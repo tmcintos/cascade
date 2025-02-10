@@ -1,6 +1,7 @@
 plugins {
   id "com.dropbox.dropshots" version "0.4.1"
   id "wtf.emulator.gradle" version "0.15.1"
+  id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 apply plugin: 'com.android.library'
