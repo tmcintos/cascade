@@ -274,7 +274,7 @@ private fun CascadeDropdownMenuContent(
           .verticalScroll(rememberScrollState())
       ) {
         val contentScope = remember(this, snapshot) {
-          object : CascadeColumnScope, ColumnScope by this {
+          object : CascadeColumnScope(), ColumnScope by this {
             override val cascadeState get() = state
             override val hasParentMenu: Boolean get() = snapshot.hasParentMenu()
             override val isNavigationRunning: Boolean get() = isTransitionRunning.value
@@ -296,14 +296,14 @@ private fun CascadeDropdownMenuContent(
 
 @Immutable
 @LayoutScopeMarker
-interface CascadeColumnScope : ColumnScope {
-  val cascadeState: CascadeState
+abstract class CascadeColumnScope : ColumnScope {
+  abstract val cascadeState: CascadeState
 
   /** True if this is a sub-menu and can navigate back. */
-  val hasParentMenu: Boolean
+  abstract val hasParentMenu: Boolean
 
   /** Indicates whether there is any animation running for changing menus. */
-  val isNavigationRunning: Boolean
+  abstract val isNavigationRunning: Boolean
 
   /**
    * Material Design dropdown menu item that navigates to a sub-menu on click.
@@ -328,7 +328,6 @@ interface CascadeColumnScope : ColumnScope {
    * }
    * ```
    */
-  @Suppress("ABSTRACT_COMPOSABLE_DEFAULT_PARAMETER_VALUE")
   @Composable
   fun DropdownMenuItem(
     text: @Composable () -> Unit,
@@ -380,7 +379,6 @@ interface CascadeColumnScope : ColumnScope {
   /**
    * Displays `text` with a back icon. Navigates to its parent menu when clicked.
    */
-  @Suppress("ABSTRACT_COMPOSABLE_DEFAULT_PARAMETER_VALUE")
   @Composable
   fun DropdownMenuHeader(
     modifier: Modifier = Modifier,
