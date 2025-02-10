@@ -52,7 +52,7 @@ internal fun AnimateEntryExit(
       tween(if (false isTransitioningTo true) InTransitionDuration else OutTransitionDuration)
     },
     label = "scale",
-    targetValueByState = { if (it) 1f else 0f }
+    targetValueByState = { if (it) 1f else 0.01f }
   )
   val alpha by isExpandedTransition.animateFloat(
     transitionSpec = {
