@@ -23,18 +23,12 @@ android {
   buildFeatures.compose = true
   composeOptions.kotlinCompilerExtensionVersion = versions.composeCompiler
 
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
+  java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-  compileOptions {
-    targetCompatibility 1.8
-    sourceCompatibility 1.8
-  }
-
-  lintOptions {
+  lint {
     abortOnError true
   }
+
 }
 
 dependencies {

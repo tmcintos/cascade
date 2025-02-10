@@ -14,6 +14,9 @@ android {
   namespace "me.saket.cascade"
 
   compileSdkVersion versions.compileSdk
+
+  java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
   defaultConfig {
     minSdkVersion versions.minSdk
     targetSdk versions.compileSdk
@@ -27,15 +30,12 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = versions.composeCompiler
   }
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
-  lintOptions {
-    abortOnError true
-  }
   testOptions {
     animationsDisabled = true
     unitTests.includeAndroidResources = true  // Required by Robolectric.
+  }
+  lint {
+    abortOnError true
   }
 }
 

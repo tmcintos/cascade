@@ -328,6 +328,7 @@ interface CascadeColumnScope : ColumnScope {
    * }
    * ```
    */
+  @Suppress("ABSTRACT_COMPOSABLE_DEFAULT_PARAMETER_VALUE")
   @Composable
   fun DropdownMenuItem(
     text: @Composable () -> Unit,
@@ -379,6 +380,7 @@ interface CascadeColumnScope : ColumnScope {
   /**
    * Displays `text` with a back icon. Navigates to its parent menu when clicked.
    */
+  @Suppress("ABSTRACT_COMPOSABLE_DEFAULT_PARAMETER_VALUE")
   @Composable
   fun DropdownMenuHeader(
     modifier: Modifier = Modifier,

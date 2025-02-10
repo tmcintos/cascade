@@ -70,7 +70,7 @@ class ComposeSampleActivity : AppCompatActivity() {
           ) {
             TopAppBar(
               title = { Text(stringResource(R.string.app_name)) },
-              colors = TopAppBarDefaults.smallTopAppBarColors(
+              colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = Color.Transparent
               ),
               actions = {

@@ -14,7 +14,7 @@ internal object RealMinSdkReader : MinSdkReader {
     return if (Build.VERSION.SDK_INT >= 24) {
       val context = LocalContext.current
       remember {
-        context.packageManager.getPackageInfo(context.packageName, 0).applicationInfo.minSdkVersion
+        context.packageManager.getApplicationInfo(context.packageName, 0).minSdkVersion
       }
     } else {
       23  // This assumes that the library's minSdk is 23.
