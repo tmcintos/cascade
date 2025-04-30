@@ -19,7 +19,7 @@ class CascadeState internal constructor() {
   private val backStack = mutableStateListOf<CascadeBackStackEntry>()
 
   fun navigateBack() {
-    backStack.removeLast()
+    backStack.removeAt(backStack. lastIndex) // removeLast() API only available on API level 35+
   }
 
   fun resetBackStack() {
